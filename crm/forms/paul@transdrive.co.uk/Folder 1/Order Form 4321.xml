@@ -1,0 +1,17 @@
+<form legend="Order Form 4321" modified="15/07/2012 18:06:27" >
+	<fieldset usermode="edit" >
+		<field name="Name" type="input" usermode="edit" label="Your Name" options="" >MarkyB</field>
+		<field name="Company" type="input" usermode="edit" label="Company Name" options="" >Bamboo</field>
+		<field name="Email" type="input" usermode="edit" label="Email Address" options="" >mark@me.com</field>
+		<field name="Telephone" type="input" usermode="edit" label="Telephone Number" options="" ></field>
+		<field name="Interest" type="checkbox" usermode="edit" label="I Am Interested In" options="I Just Like Sending Spam|Websites|Mobile Websites|Brand Creation|Social Media Management|Email Marketing|Copywriting|Search Engine Optimisation|Managed PPC Campaigns" >Websites|Email Marketing|Copywriting|Managed PPC Campaigns</field>
+		<field name="TypeOfCompany" type="select" usermode="edit" label="What kind of company are you" options="Sole Trader|Limited Liability Partnership|Limted Company" >Limted Company</field>
+		<field name="Budget" type="radio" usermode="edit" label="What budget do you have" options="less than £1,000|£1,000-£5,000|£5,000 or more" >£1,000-£5,000</field>
+		<field name="Enquiry" type="textarea" usermode="edit" label="Enquiry" options="" >this is the enquiry</field>
+	</fieldset>
+	<fieldset usermode="none" >
+		<field name="TimestampCreated" type="input" usermode="none" label="Created" options="" ></field>
+		<field name="TimestampModified" type="input" usermode="edit" label="Modified" options="" ></field>
+		<field name="ModifiedBy" type="input" usermode="none" label="By" options="" ></field>
+	</fieldset>
+</form>

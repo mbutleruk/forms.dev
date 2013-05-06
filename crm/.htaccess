@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^forms(.*)$ /crm/index.php?path=$1 [L]
