@@ -244,7 +244,7 @@
 		if($email=='') $email = '[NONE]';
 
 		// Construct the reset password link for the supplied email address
-		$url = SITE_DOMAIN . SITE_URL . '/login.php?key=' . bb_generate_hash($email) . '&email=' . $email;
+		$url = 'http://' . SITE_DOMAIN . SITE_URL . '/login.php?key=' . bb_generate_hash($email) . '&email=' . $email;
 		$link = '<a href="' . $url . '">' . $url .'</a>';
 
 		// Construct the email containing the link

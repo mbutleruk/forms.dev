@@ -9,13 +9,14 @@
 		public $type;
 		public $usermode;
 		public $label;
+		public $hint;
 		public $default;
 		public $options;
 		public $value;
 	
 //----------------------------------------------------------------------------------------------------------------
 
-		public function bb_form_field($name_arg='field', $type_arg='text', $usermode_arg='none', $label_arg='', $default_arg='', $options_arg=array(), $value_arg='') {
+		public function bb_form_field($name_arg='field', $type_arg='text', $usermode_arg='none', $label_arg='', $hint_arg='', $default_arg='', $options_arg=array(), $value_arg='') {
 		
 			$this->mode 	 = "view";
 			$this->admin 	 = false;
@@ -23,6 +24,7 @@
 			$this->type    	= $type_arg;
 			$this->usermode	= $usermode_arg;
 			$this->label   	= $label_arg;
+			$this->hint   	= $hint_arg;
 			$this->default 	= $default_arg;
 			$this->options 	= $options_arg;
 			$this->value   	= $value_arg;
@@ -47,10 +49,15 @@
 				if($this->mode=="edit" && $this->usermode=="none") $this->mode = "none";
 				if($this->mode=="view" && $this->usermode=="none") $this->mode = "none";
 			}		
-			
-			$html.="<div class=\"control-group\">";
-			if($this->mode=="edit" || $this->mode=="view") $html.= "<label class=\"control-label\" for=\"$this->name\">$this->label</label>\n";
-			$html.="<div class=\"controls\">";
+
+			$html.="<div class=\"question\">";
+			if($this->mode=="edit" || $this->mode=="view") {
+				$html.= "<div class=\"prompts\">";
+				$html.="<label for=\"$this->name\">$this->label</label>";
+				if($this->hint!="") $html.="<label class=\"hint\">$this->hint</label>";
+				$html.= "</div>\n";
+			}
+			$html.="<div class=\"inputs\">";
 			
 			switch($this->type) {
 			
@@ -84,7 +91,7 @@
 							if($this->value!='') if(in_array($option, explode('|', $value))) $html.=" checked=\"checked\"";
 							$html.= "/>$option</label>\n";
 						}		
-					}
+					}					
 					else {
 						foreach($this->options as $option) {
 							if($this->value!='') if(in_array($option, explode('|', $value))) $html.="<span class=\"uneditable-input\">".$option."</span>";
@@ -128,6 +135,7 @@
 			if($this->type!='') 	$xml.= "type=\"$this->type\" "; 
 			if($this->usermode!='') $xml.= "usermode=\"$this->usermode\" "; 
 			if($this->label!='') 	$xml.= "label=\"$this->label\" "; 
+			if($this->hint!='') 	$xml.= "hint=\"$this->hint\" "; 
 			if($this->default!='') 	$xml.= "default=\"$this->default\" "; 
 			if($this->options!='') {
 				$options = "";
@@ -152,6 +160,7 @@
 			if(isset($obj["type"]))    	$this->type  	= $obj["type"];
 			if(isset($obj["usermode"]))	$this->usermode	= $obj["usermode"];
 			if(isset($obj["label"]))   	$this->label 	= $obj["label"];
+			if(isset($obj["hint"]))   	$this->hint 	= $obj["hint"];
 			if(isset($obj["options"])) 	$this->options  = explode("|", $obj["options"]);
 			if(isset($obj["default"])) 	$this->default  = $obj["default"];
 

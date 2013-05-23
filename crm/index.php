@@ -146,7 +146,7 @@
 		$crumb_count = sizeof($crumbs);
 		$crumb_index = 1;
 
-		echo '<ul class="breadcrumb">';
+		echo '<ul class="breadcrumbs">';
 
 		foreach ($crumbs as $crumb) {
 			if ($crumb_index<$crumb_count) {
@@ -190,7 +190,7 @@
 	function render_folder() {
 
 
-		echo '<table class="table table-striped well">' . "\r\n";
+		echo '<table class="table">' . "\r\n";
 		echo '<thead>'. "\r\n";
 		echo '<tr>'. "\r\n";
 		echo '	<th>&nbsp;</th>' . "\r\n";
@@ -274,57 +274,51 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="title" content="Bamboo Forms" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Bamboo Forms</title>
-		<!--- JQUERY -->
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700)">
+        <link rel="stylesheet" type="text/css" href="/crm/bootstrap/css/bootstrap.min.css">
+		<link href="/crm/_css/screen.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="/crm/_scripts/jquery.js"></script>
 		<script type="text/javascript" src="/crm/_scripts/jquery.easing.js"></script>
 		<script type="text/javascript" src="/crm/_scripts/jquery.iframe-post-form.js"></script>
-		<!-- BOOTSTRAP -->
-		<link href="/crm/_bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
-		<link href="/crm/_bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-		<script type="text/javascript" src="/crm/_bootstrap/js/bootstrap.js"></script>
-		<!-- OTHER -->
-		<link href="/crm/_css/screen.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="/crm/_scripts/index.js"></script>
 	</head>
 
 	<body>
 	
-		<div class="container-fluid">
+    	<div class="container">
+
+ 			<label class="ajax-status btn btn-success">Saving</label>
+
+			<div class="control-bar">
+				<a class="brand" href="#"><img alt="" src="/crm/_images/logo.jpg" /></a>
+				<?php echo $_SESSION["user"];?>&nbsp;&nbsp;
+				<a href="/crm/login.php">Log out</a>
+				<?php render_breadcrumbs(); ?>
+			</div>
+
+    		<div class="document">
 	
-			<label class="label label-success" id="ajax_status">Saving</label>
+				<?php 
+					if($mode=='folder') { 
+						echo '<h2>' . end(explode("/", $_SESSION['path'])) . '</h2>' . "\r\n";
+						render_folder();
+					} 
+					else { 
+						render_form();
+					} 
+				?>	
+			
+			</div>
 
-			<div class="navbar">
-  				<div class="navbar-inner">
-    				<a class="brand" href="#"><img alt="" src="_images/logo.jpg" /></a>
-    				<a class="btn btn-link pull-right" href="/crm/login.php">Log out</a>
-    				<p class="navbar-text pull-right"><?php echo $_SESSION["user"];?>&nbsp;&nbsp;</p>
-    			</div>
-    		</div>
-
-			<?php render_breadcrumbs(); ?>
-
-			<?php 
-				if($mode=='folder') { 
-					echo '<h2>' . end(explode("/", $_SESSION['path'])) . '</h2>' . "\r\n";
-					render_folder();
-				} 
-				else { 
-					render_form();
-				} 
-			?>	
-
-		<?php if($mode=='form' && $form->mode=="edit"): ?>
-			<div class="navbar">
-  				<div class="navbar-inner">
-  					<span class="navbar-text pull-right"><a href="javascript:doSignature()">Click here to sign this document</a> - Please note once you have signed this document you will no longer be able to change it.</span>
-  				</div>
+ 		<?php if($mode=='form' && $form->mode=="edit"): ?>
+			<div class="control-bar left">
+				<a class="sign-link" href="javascript:doSignature()">Click here to sign this document</a>&nbsp;&nbsp;&nbsp;<span class="hint">Please note once you have signed this document you will no longer be able to change it.</span>
   			</div>
 		<?php endif; ?>
 
 		</div>
-		
+
 		<div class="modal hide fade" id="confirmsignature">
 			<div class="modal-header">
 				<h4>Sign Document</h4>

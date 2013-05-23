@@ -1,6 +1,7 @@
 /***********************************************************************************************************/
 
 	var delay = 1000;
+	var animationSpeed = 500;
 	var timer;			
 	
 /***********************************************************************************************************/
@@ -11,17 +12,17 @@
 		{
 			post: function()
 			{
-				$('#ajax_status').html('Saving…').show();
+				$('.ajax-status').stop(false, true).html('Saving').css({'right':-100}).animate({'right':5}, animationSpeed);
 			},
 			complete: function(response)
 			{
 				if (response == 'ERROR')
 				{
-					$('#ajax_status').html('ERROR').show();
+					$('.ajax-status').html('ERROR');
 				}
 				else
 				{
-					$('#ajax_status').fadeOut();
+					$('.ajax-status').animate({'right':-100}, animationSpeed);
 				}
 			}
 		});		
