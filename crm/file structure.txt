@@ -1,0 +1,20 @@
+form
+	legend
+	created
+	modified
+	modifiedby
+	signature
+	signed
+
+fieldset
+	legend
+	usermode	edit|view|admin
+
+field
+	name
+	label
+	hint
+	usermode edit|view|admin
+	type input|textarea|select|checkbox|radio
+	options (only applies to select, checkbox & radio)
+	default

@@ -1,4 +1,0 @@
-Restyle to match prototype.dev
-Finish signature process
-
-Added line on github.com

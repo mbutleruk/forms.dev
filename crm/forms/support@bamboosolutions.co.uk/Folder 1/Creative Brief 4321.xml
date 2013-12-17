@@ -1,10 +1,12 @@
-<form legend="Creative Brief 4321" modified="25/01/2013 16:23:21" >
+<form legend="Creative Brief 4321" modified="11/12/2013 08:40:12" >
 	<fieldset usermode="edit" >
 		<field name="Name" type="input" usermode="edit" label="Your Name" options="" >Mark Butler</field>
 		<field name="Company" type="input" usermode="edit" label="Company Name" options="" >Bamboo Solutions</field>
 		<field name="Email" type="input" usermode="edit" label="Email Address" options="" >mark@me.com</field>
 		<field name="Telephone" type="input" usermode="edit" label="Telephone Number" options="" ></field>
 		<field name="Interest" type="checkbox" usermode="edit" label="I Am Interested In" options="I Just Like Sending Spam|Websites|Mobile Websites|Brand Creation|Social Media Management|Email Marketing|Copywriting|Search Engine Optimisation|Managed PPC Campaigns" >Websites|Email Marketing|Copywriting|Managed PPC Campaigns</field>
+	</fieldset>
+	<fieldset usermode="edit" >
 		<field name="TypeOfCompany" type="select" usermode="edit" label="What kind of company are you" options="Sole Trader|Limited Liability Partnership|Limted Company" >Limited Liability Partnership</field>
 		<field name="Budget" type="radio" usermode="edit" label="What budget do you have" options="less than £1,000|£1,000-£5,000|£5,000 or more" >less than £1,000</field>
 		<field name="Enquiry" type="textarea" usermode="edit" label="Enquiry" options="" >this is the enquiry</field>

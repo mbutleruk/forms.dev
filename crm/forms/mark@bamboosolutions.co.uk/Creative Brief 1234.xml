@@ -1,0 +1,85 @@
+<form legend="Creative Brief 1234" signed="17/12/2013 14:27:32" created="01/01/2014 00:00:00" modified="17/12/2013 14:27:32" modifiedby="[ADMIN]" >
+	<fieldset legend="Why do we need a creative brief?" >
+		<field name="field" type="text" >The purpose of this creative brief is to give everyone involved in the project a common understanding of what you want to achieve. The creative brief aims to give direction and ultimately serve as a benchmark against which to test concepts throughout a project. This creative brief is just a starting point and a place to launch your ideas and help focus the project - it will not identify a solution but it’s a great place to kick start the creative processes.</field>
+		<field name="field" type="text" >The creative brief gives you the opportunity to clarify your objectives and reasons for embarking on the project in the first place. If you really don’t like the colour orange then this is the time to make that clear and understood - No Orange!</field>
+		<field name="field" type="text" >So you think its just Bamboo who needs this creative brief? Well look again because once you have completed the creative brief you can then present it to the people within your organisation who will be most affected by what is being produced and evoke valuable feedback.</field>
+		<field name="field" type="text" >That said the approval of work is best left to as few people as possible, a single point of contact who has the final decisions during the design and development process of a project prevents conflicting feedback.</field>
+	</fieldset>
+	<fieldset legend="Before we begin lets gather your company details" >
+		<field name="CompanyName" usermode="view" label="Company name" >Bamboo Solutions</field>
+		<field name="TradingName" label="Trading name" >dave</field>
+		<field name="TypeOfCompany" type="radio" label="Type of company" default="Sole Trader" options="Sole Trader|Limited Liability Partnership|Limted Company" >Limited Liability Partnership</field>
+		<field name="CompanyRegistrationNumber" label="Company registration number" ></field>
+		<field name="Address" type="textarea" label="Address" ></field>
+		<field name="TelephoneNumber" label="Telephone Number" ></field>
+	</fieldset>
+	<fieldset legend="To begin with tell us about your business" >
+		<field name="AlreadyOwnDomain" type="textarea" label="Do you already own a domain?" hint="If you own a few tell us about them all" ></field>
+		<field name="AlreadyHaveWebsite" type="radio" label="Do you currently have an existing website?" default="No" options="Yes|No" >No</field>
+		<field name="DescribeBusiness" type="textarea" label="Describe your business and what products and services you offer" ></field>
+		<field name="WhatIndustry" label="What industry does your business operate in?" hint="e.g. recruitment, engineering" ></field>
+		<field name="OverallMood" type="checkbox" label="Describe the overall mood you would like to portray" hint="Choose as many as you like" options="Fancy|Cutting edge|Unique|Creative|Clean|Simple|Class|Professional|Corporate|Modern|Industry oriented|Outdoors|Natural|Traditional|Local|High tech|Retro|Fun|Serious|Illustrative|Silly|Cartoon|Masculine|Feminine|childlike" >Masculine</field>
+		<field name="HowExpensive" type="select" label="Where do you see your products and services?" hint="On a scale of 1 to 10, where 10 is 'Very expensive' and 1 is 'Very cheap'" options="1 - Very cheap|2|3|4|5 - Average|6|7|8|9|10 - Very expensive" >1 - Very cheap</field>
+		<field name="HowModern" type="select" label="Where do you see your products and services?" hint="On a scale of 1 to 10, where 10 is 'Very modern' and 1 is 'Very Traditional'" options="1 - Very traditional|2|3|4|5 - Average|6|7|8|9|10 - Very modern" >1 - Very traditional</field>
+		<field name="OneSentence" label="If you could get one sentence across what would it be?" >  </field>
+		<field name="CurrentlyPurchased" type="textarea" label="How are your products and services currently purchased?" hint="e.g. retail outlet, magazine advertisement" >  </field>
+		<field name="CurrentMarketing" type="textarea" label="What marketing techniques do you currently use to attract clients/customers?" hint="e.g. print advertisements, radio, Google PPC" >  </field>
+		<field name="SearchTerms" type="textarea" label="What search terms would your clients use to find your products and services? Please list your top five search terms you would like to come up for." hint="e.g. 'web design bury', 'rasta jackets'" ></field>
+	</fieldset>
+	<fieldset legend="Now tell us about your competition" >
+		<field name="field" type="text" >Who are your top three competitors?</field>
+		<field name="field" type="subheading" >Competitor 1</field>
+		<field name="Competitor1Name" label="Name" ></field>
+		<field name="Competitor1Website" label="Website" ></field>
+		<field name="Competitor1Influence" type="select" label="How influential/competitive are they in your industry?" hint="On a scale of 1 to 10, where 10 is 'Much more than us', and 1 is 'Nowhere near us'" default="1" options="1|2|3|4|5|6|7|8|9|10" >1</field>
+		<field name="field" type="subheading" >Competitor 2</field>
+		<field name="Competitor2Name" label="Name" ></field>
+		<field name="Competitor2Website" label="Website" ></field>
+		<field name="Competitor2Influence" type="select" label="How influential/competitive are they in your industry?" hint="On a scale of 1 to 10, where 10 is 'Much more than us', and 1 is 'Nowhere near us'" default="1" options="1|2|3|4|5|6|7|8|9|10" >1</field>
+		<field name="field" type="subheading" >Competitor 3</field>
+		<field name="Competitor3Name" label="Name" ></field>
+		<field name="Competitor3Website" label="Website" ></field>
+		<field name="Competitor3Influence" type="select" label="How influential/competitive are they in your industry?" hint="On a scale of 1 to 10, where 10 is 'Much more than us', and 1 is 'Nowhere near us'" default="1" options="1|2|3|4|5|6|7|8|9|10" >1</field>
+		<field name="KeyReasons" type="textarea" label="What are the key reasons for choosing your company’s products and/or services over your competitors’?" hint="cost, service, value, etc." ></field>
+	</fieldset>
+	<fieldset legend="OK, Lets learn about your target audience" >
+		<field name="TargetGender" type="radio" label="What gender?" default="Male" options="Male|Female" >Male</field>
+		<field name="TargetAgeGroups" type="checkbox" label="Age groups?" hint="Feel free to tick more than one" options="18-24|25-34|35-44|45-64|65+" ></field>
+		<field name="TargetEmploymentStatus" type="checkbox" label="Employment status?" hint="You can tick more than one" options="Unemployed|Self employed|Employed|Managing director" ></field>
+		<field name="GeographicalConsiderations" label="Are there any geographical considerations?" hint="e.g. UK audience only, local, worldwide" ></field>
+		<field name="EthnicConsiderations" label="Are there any ethnic considerations?" hint="e.g. Primarily aimed at an Asian market" ></field>
+		<field name="SpecialInterests" label="Are there any special interests, hobbies or values to consider?" hint="e.g. Primarily aimed towards motorcyclists" ></field>
+		<field name="SpecificDisabilities" label="Are there any specific disabilities we need to take into consideration?" hint="e.g. blind/partially sighted" ></field>
+		<field name="Preconceptions" type="textarea" label="Are there any preconceptions about your products and/or services that we need to dispel?" hint="e.g. these products are only used by older people" ></field>
+	</fieldset>
+	<fieldset legend="Now let us have some of your creative input" >
+		<field name="field" type="text" >List four websites that you like and tell us what it is you like about them. Remember these don’t have to have anything to do with your business or industry</field>
+		<field name="field" type="subheading" >Website 1</field>
+		<field name="Website1Address" label="Website address" ></field>
+		<field name="Website1Like" label="What you like" ></field>
+		<field name="field" type="subheading" >Website 2</field>
+		<field name="Website2Address" label="Website address" ></field>
+		<field name="Website2Like" label="What you like" ></field>
+		<field name="field" type="subheading" >Website 3</field>
+		<field name="Website3Address" label="Website address" ></field>
+		<field name="Website3Like" label="What you like" ></field>
+		<field name="field" type="subheading" >Website 4</field>
+		<field name="Website4Address" label="Website address" ></field>
+		<field name="Website4Like" label="What you like" ></field>
+	</fieldset>
+	<fieldset legend="The Project" >
+		<field name="MainReason" label="What is the main reason behind this project? Do you have any measurable objectives to progress towards?" hint="e.g. Increase in enquiries, increase in membership by 15%, Media coverage" ></field>
+		<field name="Budget" type="select" label="What is the budget for the project?" default="£1,000 - £2,000" options="£1,000 - £2,000|£2,000 - £4000|£4,000 - £8,000|£8,000 - £12,000|£12,000 - £20,000|Over £20,000" >£1,000 - £2,000</field>
+		<field name="Deadline" label="Do you have a specific date this project needs to launch to have the greatest impact on your audience?" hint="e.g. annual event, party, conference, holiday" ></field>
+		<field name="AssetsAvailable" type="textarea" label="Describe visual elements or content which will be available – if any" hint="logo, colour scheme, navigation, naming conventions, etc." ></field>
+		<field name="ResponsibleForContent" label="Who is responsible for delivery content for the project?" ></field>
+	</fieldset>
+	<fieldset legend="Who has the final say?" >
+		<field name="field" type="text" >Who has final say on the design and approval of the project?</field>
+		<field name="FinalSayName" label="Name" ></field>
+		<field name="FinalSayTelephone" label="Telephone" ></field>
+		<field name="FinalSayEmail" label="Email" ></field>
+		<field name="FinalSayPosition" label="Position in the company" ></field>
+		<field name="FinalSayProcess" type="textarea" label="Do you have an internal review and approval process we should be aware of? If yes please describe" ></field>
+	</fieldset>
+</form>

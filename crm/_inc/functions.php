@@ -13,13 +13,14 @@
 	define('SITE_DOMAIN', 			'forms.dev');
 	define('SITE_URL', 				'/crm/');
 	define('FORM_PATH', 			'forms');
+	define('TEMPLATE_PATH', 		'templates');
 	define('SITE_EMAIL_ADDRESS', 	'website@forms.dev');
 	define('HASH_KEY', 				'wT3C[pzVbx2ay*m8fNnSUI|hJWZ`(>sL76901Ql5FH4/%o._DO');
 	define('HASH_SALT', 			'=Uk5lC?9v6iuX8OG$1hD)xyQP2JS7A!0+NRV[w3ct4{LMz;I>T');
 	define('PASSWORD_RESET_EMAIL',	'You have requested that the password be reset for {email}. To reset this password please click the link below. <br/><br/>{link}');
 	define('ADMIN_USERNAME', 		'admin');
 	define('ADMIN_PASSWORD', 		'admin');
-	
+
 //----------------------------------------------------------------------------------------------------------------
 
 	// Turn on error reporting
@@ -35,14 +36,14 @@
 
 	// If the user is not logged in...
 	if($_SESSION["user"] == "[NONE]") {
-	
+
 		// If a login cookie is set...
-		if(isset($_COOKIE["c1"])) {		
-	
+		if(isset($_COOKIE["c1"])) {
+
 			// Attempt to log in with the cookie
 			bb_do_login_from_cookie($_COOKIE["c1"]);
 		}
-		
+
 		// If the user is still not logged in and we are not already on the login page...
 		if($_SESSION["user"] == "[NONE]" && bb_get_current_page()!='login.php') {
 
@@ -51,27 +52,27 @@
 			header('Location: /crm/login.php');
 
 		}
- 
+
 	}
 
 //----------------------------------------------------------------------------------------------------------------
-	
+
 	function bb_sanitise($value='') {
-	
+
 		// Strip invalid characters and trim the value
 		$result = str_replace('"', '', trim($value));
-		$result = str_replace("'", '', $result);	  
-		$result = str_replace(';', '', $result);	  
-		$result = str_replace('<', '', $result);	  
-		$result = str_replace('>', '', $result);	  
+		$result = str_replace("'", '', $result);
+		$result = str_replace(';', '', $result);
+		$result = str_replace('<', '', $result);
+		$result = str_replace('>', '', $result);
 
 		// Return the result
 		return $result;
-	
+
 	}
 
 //----------------------------------------------------------------------------------------------------------------
-	
+
 	function bb_get_login_cookie($email='[NONE]') {
 
 		// Generate the cookie which consists of the email address and the hashed email address seperated by a pipe
@@ -81,13 +82,13 @@
 
 		// Return the result
 		return $result;
-	
+
 	}
 
 //----------------------------------------------------------------------------------------------------------------
 
 	function bb_do_login($email='[NONE]', $password='[NONE]') {
-		
+
 		if($email=='') $email = '[NONE]';
 
 		// If the login credentials match the built in admin login...
@@ -104,7 +105,7 @@
 
 			// If the user exists...
 	  		if(bb_user_exists($email)) {
-	
+
 				// Generate the hash of the supplied password
 	  			$supplied_hash = bb_generate_hash($password);
 
@@ -132,7 +133,7 @@
 
 	  			// The login failed
 	  			return false;
-	  		}	
+	  		}
 
 	  	}
 
@@ -141,7 +142,7 @@
 //----------------------------------------------------------------------------------------------------------------
 
 	function bb_do_login_from_cookie($cookie="|") {
-	
+
 		// Extract the email and password from the supplied cookie
 		$cookie   = explode("|", $cookie);
 		$email 	  = $cookie[0];
@@ -174,8 +175,8 @@
 
   			// The login failed
   			return false;
-  		}	
-		
+  		}
+
 	}
 
 //----------------------------------------------------------------------------------------------------------------
@@ -198,11 +199,11 @@
 		return file_exists($directory);
 
 	}
-	
+
 //----------------------------------------------------------------------------------------------------------------
-	
+
 	function bb_get_password_hash($email='[NONE]') {
-		
+
 		// Get the stored password hash for the supplied email address
 		if($email=='') $email = '[NONE]';
 		$file = $_SERVER["DOCUMENT_ROOT"] . SITE_URL . FORM_PATH . '/' . $email . '/password.txt';
@@ -211,27 +212,27 @@
    		if(substr($hash, -1)=="\n") $hash = substr($hash, 0, strlen($hash)-1);
 		fclose($file_handle);
 		return $hash;
-		
+
 	}
-	
+
 //----------------------------------------------------------------------------------------------------------------
 
 	function bb_set_password_hash($email='[NONE]', $password='[NONE]') {
 
 		// Set the stored password hash for the supplied email address
 		if($email=='') $email = '[NONE]';
-		$hash = bb_generate_hash($password);	
+		$hash = bb_generate_hash($password);
 		$file = $_SERVER["DOCUMENT_ROOT"] . '/' . SITE_URL . FORM_PATH . '/' . $email . '/password.txt';
 		$file_handle = fopen($file, 'w');
 		fwrite($file_handle, $hash);
 		fclose($file_handle);
-	
+
 	}
-	
+
 //----------------------------------------------------------------------------------------------------------------
-	
+
 	function bb_generate_hash($password='[NONE]') {
-	
+
 		// Return the SHA512 hash of the supplied password using the defined salt and key
 		return hash_hmac('sha512', $password . HASH_SALT, HASH_KEY);
 
@@ -256,32 +257,32 @@
 		bb_send_email($email, 'Password Reset for '. SITE_TITLE, $message);
 
 	}
-	
+
 //----------------------------------------------------------------------------------------------------------------
 
 	function bb_send_email($to='', $subject='', $message='') {
-	
+
 		// Construct the email body
-		$body	 = "<html><body>" . $message . "</body></html>";	
+		$body	 = "<html><body>" . $message . "</body></html>";
 
 		// Construct the email headers
 		$headers = "From: " . SITE_EMAIL_ADDRESS . "\r\n" . "Reply-To: ". SITE_EMAIL_ADDRESS . "\r\n" . "X-Mailer: PHP/" . phpversion();
 		$headers .= "MIME-Version: 1.0" . "\r\n";
-		$headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";	
+		$headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
 
 		// Send the email
 		mail($to, $subject, $body, $headers);
-	
+
 	}
-	
+
 //----------------------------------------------------------------------------------------------------------------
 
 	function bb_get_current_page() {
-	
+
 		// Return the name of the current page
 		return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
 
 	}
-	
+
 //----------------------------------------------------------------------------------------------------------------
 ?>

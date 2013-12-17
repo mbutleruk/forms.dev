@@ -2,46 +2,48 @@
 //----------------------------------------------------------------------------------------------------------------
 
 	class bb_form_fieldset {
-	
+
 //----------------------------------------------------------------------------------------------------------------
 
 		public $usermode;
+		public $admin;
 		public $legend;
 		public $fields;
-		
+
 //----------------------------------------------------------------------------------------------------------------
 
-		public function bb_form_fieldset($usermode_arg='none', $legend_arg = '', $fields_arg = array()) {
-		
-			$this->mode 	 = "view";
-			$this->admin 	 = false;
+		public function bb_form_fieldset($usermode_arg='edit', $legend_arg = '', $fields_arg = array()) {
+
+			$this->mode 	 = "edit";
+			$this->admin	 = false;
 			$this->usermode  = $usermode_arg;
 			$this->legend    = $legend_arg;
 			$this->fields    = $fields_arg;
 		}
-		
+
 //----------------------------------------------------------------------------------------------------------------
 
 		public function get_html() {
-		
+
 			$html = "";
 
 			if(!$this->admin) {
+				if($this->mode=="view" && $this->usermode=="none") $this->mode = "none";
 				if($this->mode=="edit" && $this->usermode=="view") $this->mode = "view";
 				if($this->mode=="edit" && $this->usermode=="none") $this->mode = "none";
-				if($this->mode=="view" && $this->usermode=="none") $this->mode = "none";
-			}		
+				if($this->usermode=="admin") $this->mode = "none";
+			}
 
 			if($this->mode=="edit" || $this->mode=="view") {
 				if($this->legend!='') $html.= "<legend>$this->legend</legend>";
 				$html .= "<fieldset>\n";
-	
+
 				foreach($this->fields as $field) {
 					$field->admin = $this->admin;
 					$field->mode  = $this->mode;
 					$html.= $field->get_html();
 				}
-				
+
 				$html.= "</fieldset>\n";
 			}
 
@@ -52,18 +54,18 @@
 //----------------------------------------------------------------------------------------------------------------
 
 		public function get_xml() {
-		
+
 			$xml = "\t<fieldset ";
 			if($this->legend!='') $xml.= "legend=\"$this->legend\" ";
-			if($this->usermode!='') $xml.= "usermode=\"$this->usermode\" "; 
+			if($this->usermode!='' && $this->usermode!='edit') $xml.= "usermode=\"$this->usermode\" ";
 			$xml.= ">\n";
-			
+
 			foreach($this->fields as $field) {
 				$xml.= $field->get_xml();
 			}
-			
+
 			$xml.= "\t</fieldset>\n";
-			
+
 			return $xml;
 
 		}
@@ -81,7 +83,7 @@
 				$this->fields[] = $field;
 			}
 		}
-		
+
 //----------------------------------------------------------------------------------------------------------------
 
 	}
