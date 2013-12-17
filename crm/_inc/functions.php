@@ -1,17 +1,21 @@
 <?php
 //----------------------------------------------------------------------------------------------------------------
 
+	// Site URL
+	define('SITE_URL', '/crm/');
+
+//----------------------------------------------------------------------------------------------------------------
+
 	// Requirements
-	require_once($_SERVER["DOCUMENT_ROOT"].'/crm/_inc/bb_forms.php');
-	require_once($_SERVER["DOCUMENT_ROOT"].'/crm/_inc/bb_form_fieldsets.php');
-	require_once($_SERVER["DOCUMENT_ROOT"].'/crm/_inc/bb_form_fields.php');
+	require_once($_SERVER["DOCUMENT_ROOT"]. SITE_URL . '_inc/bb_forms.php');
+	require_once($_SERVER["DOCUMENT_ROOT"]. SITE_URL . '_inc/bb_form_fieldsets.php');
+	require_once($_SERVER["DOCUMENT_ROOT"]. SITE_URL . '_inc/bb_form_fields.php');
 
 //----------------------------------------------------------------------------------------------------------------
 
 	// Definitions
-	define('SITE_TITLE', 			'BAMBOO FORMS');
+	define('SITE_TITLE', 			'Bamboo Forms');
 	define('SITE_DOMAIN', 			'forms.dev');
-	define('SITE_URL', 				'/crm/');
 	define('FORM_PATH', 			'forms');
 	define('TEMPLATE_PATH', 		'templates');
 	define('SITE_EMAIL_ADDRESS', 	'website@forms.dev');

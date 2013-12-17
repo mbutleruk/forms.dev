@@ -168,7 +168,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="title" content="Bamboo Forms" />
-		<title>Bamboo Forms</title>
+		<title><?php echo SITE_TITLE?></title>
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700)">
 		<link href="<?php echo SITE_URL; ?>_css/screen.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="<?php echo SITE_URL; ?>_scripts/jquery.js"></script>

@@ -263,7 +263,7 @@
 		if($_SESSION['user']=='[ADMIN]') {
 			if($path=='') {
 				echo '<td class="actions">';
-				echo '<a class="rounded button action" title="Password" href="'. SITE_URL . 'password.php?user=' . $document . '"><i class="fa fa-key"></i></a>';
+				echo '<a class="rounded button action" title="Change Password" href="'. SITE_URL . 'password.php?user=' . $document . '"><i class="fa fa-key"></i></a>';
 				echo '</td>' . "\r\n";
 			} else {
 				echo '<td>';
@@ -310,7 +310,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="title" content="Bamboo Forms" />
-		<title>Bamboo Forms</title>
+		<title><?php echo SITE_TITLE?></title>
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700)">
 		<link href="<?php echo SITE_URL; ?>_css/screen.css" rel="stylesheet" type="text/css" />
