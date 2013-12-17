@@ -98,6 +98,15 @@ p {
 	font-weight: bold;
 }
 
+.action {
+	width: auto;
+}
+
+.action i {
+	margin: 0;
+	color: #737373;
+}
+
 .error {
 	color: #d55252;
 	text-align: center;
@@ -268,6 +277,9 @@ padding: 0.4em 0 0 0;
 
 /* DOCUMENT LIST */
 
+td.actions {
+	visibility: hidden;
+}
 
 /* MEDIA BREAKPOINTS */
 

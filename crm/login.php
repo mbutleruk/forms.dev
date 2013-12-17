@@ -1,7 +1,7 @@
 <?php
 /***********************************************************************************************************/
 
-	require_once($_SERVER["DOCUMENT_ROOT"].'/crm/_inc/functions.php');
+	require_once('_inc/functions.php');
 
 /***********************************************************************************************************/
 
@@ -170,9 +170,9 @@
 		<meta name="title" content="Bamboo Forms" />
 		<title>Bamboo Forms</title>
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700)">
-		<link href="/crm/_css/screen.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="/crm/_scripts/jquery.js"></script>
-		<script type="text/javascript" src="/crm/_scripts/jquery.easing.js"></script>
+		<link href="<?php echo SITE_URL; ?>_css/screen.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="<?php echo SITE_URL; ?>_scripts/jquery.js"></script>
+		<script type="text/javascript" src="<?php echo SITE_URL; ?>_scripts/jquery.easing.js"></script>
 		<script type="text/javascript">
 		//<![CDATA[
 			$(document).ready(function(){
@@ -225,7 +225,7 @@
 	<body>
 		<div class="container">
 			<div class="control-bar">
-				<a class="brand" href="#"><img alt="" src="/crm/_images/logo.png" /></a>
+				<a class="brand" href="#"><img alt="" src="<?php echo SITE_URL; ?>_images/logo.png" /></a>
 			</div>
 			<div class="document">
 				<h2>Login</h2>

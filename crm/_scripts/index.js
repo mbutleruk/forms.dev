@@ -27,7 +27,26 @@
 		});
 		$('.bb-form input, .bb-form textarea, .bb-form select').click(startTimer).keyup(startTimer);
 		$('#txtSignature').click(checkSignature).keyup(checkSignature);
+		$('.document-table tr').mouseenter(showActions);
+		$('.document-table tr').mouseleave(hideActions);
 	});
+
+/***********************************************************************************************************/
+
+	function showActions() {
+
+		$(this).children('.actions').css('visibility','visible');
+
+	}
+
+
+/***********************************************************************************************************/
+
+	function hideActions() {
+
+		$(this).children('.actions').css('visibility','hidden');
+
+	}
 
 /***********************************************************************************************************/
 
