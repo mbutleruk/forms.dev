@@ -18,3 +18,4 @@ field
 	type input|textarea|select|checkbox|radio
 	options (only applies to select, checkbox & radio)
 	default
+	   
